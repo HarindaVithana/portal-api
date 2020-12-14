@@ -19,9 +19,13 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     // Matches "/api/register
     $router->post('login', 'AuthController@login');
+    $router->put('refresh', 'AuthController@refresh');
+    $router->get('profile', 'UserController@profile');
+
     $router->get('students', 'StudentsController@list');
     $router->post('students/{id}', 'StudentsController@update');
+
     $router->get('institutions','InstitutionsController@list');
-    $router->get('profile', 'UserController@profile');
+    $router->post('institutions/{id}', 'InstitutionsController@update');
     
  });
